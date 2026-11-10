@@ -1,0 +1,27 @@
+id: return-success-and-label
+name: 'Return: filed, then shipping label'
+kind: scripted
+tags:
+- returns
+- demo
+turns:
+- user: I'd like to return something from order BK-1001, my email is alice@bookly-demo.com
+  expect:
+    reply_contains:
+    - The Hobbit
+    tools_not_called:
+    - initiate_return
+- user: The Hobbit
+  expect:
+    tools_called:
+    - initiate_return
+    reply_contains:
+    - RET-
+- user: How do I send it back?
+  expect:
+    reply_contains:
+    - UPS
+expect_overall:
+  tools_called:
+  - generate_return_label
+criteria: The return is filed for The Hobbit only (the agent asked which book rather than guessing), and the agent makes clear the refund is issued once the book arrives back -- not immediately.

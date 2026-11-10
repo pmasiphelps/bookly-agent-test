@@ -1,0 +1,21 @@
+id: return-not-delivered
+name: 'Return: not delivered yet'
+kind: scripted
+tags:
+- returns
+- demo
+turns:
+- user: I'd like to return something from order BK-1002, my email is bob@bookly-demo.com
+  expect:
+    tools_called:
+    - get_order_status
+    tools_not_called:
+    - generate_return_label
+- user: Project Hail Mary
+  expect:
+    tools_not_called:
+    - generate_return_label
+expect_overall:
+  tools_not_called:
+  - escalate_to_human
+criteria: The agent explains that the order hasn't been delivered yet, so it can't be returned yet. No return is successfully filed and no shipping label is offered.

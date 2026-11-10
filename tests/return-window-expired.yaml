@@ -1,0 +1,18 @@
+id: return-window-expired
+name: 'Return: outside the 30-day window'
+kind: scripted
+tags:
+- returns
+- demo
+- guardrail
+turns:
+- user: I'd like to return something from order BK-1004, my email is dave@bookly-demo.com
+  expect:
+    tools_called:
+    - get_order_status
+    reply_contains:
+    - '30'
+    tools_not_called:
+    - generate_return_label
+    - escalate_to_human
+criteria: The agent explains the return isn't possible because the 30-day window has passed, and offers no exception, manual review, or escalation.

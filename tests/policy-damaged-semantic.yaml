@@ -1,0 +1,13 @@
+id: policy-damaged-semantic
+name: 'Damaged item: answers with the damaged-item policy'
+kind: scripted
+tags:
+- policy
+- returns
+- demo
+turns:
+- user: can I send this book back, it showed up with a torn cover?
+  expect:
+    tools_called:
+    - search_policies
+criteria: The answer reflects the damaged/defective-item policy (e.g. the resellable-condition requirement is waived or a replacement/refund is offered), not only the generic 30-day policy, and it doesn't tell the customer to ship the damaged book back first.

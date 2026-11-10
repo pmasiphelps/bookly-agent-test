@@ -1,0 +1,1 @@
+I'm the Bookly order support assistant, so I can only help with order status, returns and refunds, or general Bookly questions -- things like shipping, policies, payment methods, or resetting your password. I can't help with that one, but is there anything about a Bookly order or account I can help with?

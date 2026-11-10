@@ -1,0 +1,10 @@
+# Written by Bookly Studio. AOPs load in the order listed under aops:.
+agent_model: claude-sonnet-5-5
+router_model: claude-haiku-4-5-20251001
+max_tool_iterations: 6
+enabled_tools:
+- get_order_status
+- list_orders_for_customer
+- search_policies
+aop_only_tools: []
+aops: []

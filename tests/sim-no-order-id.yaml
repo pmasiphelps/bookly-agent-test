@@ -1,0 +1,15 @@
+id: sim-no-order-id
+name: 'Simulation: customer doesn''t know their order ID'
+kind: simulation
+tags:
+- order_status
+- simulation
+simulation:
+  persona: Carol, in a hurry, types tersely.
+  goal: Find out what's going on with the book you ordered today. You don't have the order number.
+  details: Email carol@bookly-demo.com. You do not know your order ID.
+  max_turns: 5
+expect_overall:
+  tools_called:
+  - list_orders_for_customer
+criteria: The agent finds the order from the email and tells Carol it is still processing (not shipped). Sharing details a [tool] result contains -- such as its estimated_delivery date -- is fine; stating a tracking number or date that no [tool] result contains is not.

@@ -1,0 +1,19 @@
+id: damaged-item-end-to-end
+name: 'Damaged item: return filed, no shipping back'
+kind: scripted
+tags:
+- returns
+- aop
+turns:
+- user: The Hobbit from my order BK-1001 arrived with a torn cover and I'd like a refund. My email is alice@bookly-demo.com
+  expect:
+    tools_called:
+    - search_policies
+    - get_order_status
+    - initiate_return
+    reply_contains:
+    - RET-
+expect_overall:
+  tools_not_called:
+  - generate_return_label
+criteria: 'The agent applies the damaged-item policy: it files the return for The Hobbit, tells the customer they don''t need to send the damaged book back, and never offers a return label.'

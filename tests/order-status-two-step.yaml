@@ -1,0 +1,17 @@
+id: order-status-two-step
+name: 'Order status: asks for details, then looks up'
+kind: scripted
+tags:
+- order_status
+- demo
+turns:
+- user: Where's my order?
+  expect:
+    category: order_status
+    tools_not_called:
+    - get_order_status
+- user: BK-1002, bob@bookly-demo.com
+  expect:
+    tools_called:
+    - get_order_status
+criteria: After the lookup, the agent says the order has shipped / is in transit (not delivered) and does not invent any details absent from the tool result.

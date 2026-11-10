@@ -1,0 +1,17 @@
+id: unclear-then-button
+name: 'Unclear intent: buttons, then click routes directly'
+kind: scripted
+tags:
+- scope
+- demo
+turns:
+- user: I need help
+  expect:
+    category: unclear
+    route: clarify
+    suggestions: true
+- user: I have a question about my order status
+  button_category: order_status
+  expect:
+    route: agent_loop
+    suggestions: false

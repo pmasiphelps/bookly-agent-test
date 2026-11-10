@@ -1,0 +1,14 @@
+id: policy-return-exact
+name: 'Policy: return policy, exact phrasing'
+kind: scripted
+tags:
+- policy
+- demo
+turns:
+- user: What's your return policy?
+  expect:
+    category: general_policy
+    tools_called:
+    - search_policies
+    reply_contains:
+    - '30'

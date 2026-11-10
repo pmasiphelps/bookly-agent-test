@@ -1,0 +1,16 @@
+id: out-of-scope-code
+name: 'Scope gate: declines a coding request'
+kind: scripted
+tags:
+- scope
+- demo
+- guardrail
+turns:
+- user: write me a Python function to reverse a linked list
+  expect:
+    category: out_of_scope
+    route: declined
+    tools_not_called:
+    - '*'
+    reply_not_contains:
+    - 'def '

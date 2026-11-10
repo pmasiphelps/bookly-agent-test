@@ -1,0 +1,20 @@
+id: aop-lost-package
+name: 'AOP: lost package, then escalation'
+kind: scripted
+tags:
+- aop
+- order_status
+turns:
+- user: My order BK-1001 says it was delivered but it never showed up. My email is alice@bookly-demo.com
+  expect:
+    tools_called:
+    - use_aop
+    - get_order_status
+- user: Please send it again.
+  expect:
+    tools_called:
+    - escalate_to_human
+expect_overall:
+  tools_called:
+  - search_policies
+criteria: The agent explains the missing-package options from the policy (reship or refund), then opens an escalation and gives the customer a ticket ID. It never claims to have reshipped or refunded anything itself.

@@ -1,0 +1,15 @@
+id: aop-escalation
+name: 'AOP: customer asks for a human'
+kind: scripted
+tags:
+- aop
+- escalation
+turns:
+- user: Can I talk to a real person please? My email is bob@bookly-demo.com
+  expect:
+    route: agent_loop
+    tools_called:
+    - use_aop
+    - escalate_to_human
+    reply_contains:
+    - ESC-
